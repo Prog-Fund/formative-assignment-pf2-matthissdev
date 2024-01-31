@@ -1,3 +1,4 @@
+//First comment
 /**
  * A scaled down version of a Product class.
  *
