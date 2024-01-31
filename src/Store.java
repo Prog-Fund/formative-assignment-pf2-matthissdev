@@ -1,4 +1,5 @@
 //First comment
+//Second commit
 /**
  * The store class saves all the entered products into a primitive array.
  *
