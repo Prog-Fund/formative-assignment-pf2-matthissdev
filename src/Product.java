@@ -1,4 +1,4 @@
-//First comment
+
 /**
  * A scaled down version of a Product class.
  *
@@ -22,7 +22,12 @@ public class Product {
      * @param unitCost Unit cost of the product - valid values are any positive number
      */
     public Product(String productName, int productCode, double unitCost, boolean inCurrentProductLine) {
-       this.productName = productName;
+       if (productName != null){
+           if (productName.length() <= 20);
+           this.productName = productName;
+             else this.productName = productName.substring(0,20);
+       }
+
        this.productCode = productCode;
        this.unitCost = unitCost;
     }
