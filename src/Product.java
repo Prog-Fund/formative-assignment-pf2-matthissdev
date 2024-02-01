@@ -10,7 +10,7 @@ public class Product {
                                     // When constructor is called, if the name is >20 chars, you should
                                     // only store the first 20 characters (Hint: use substr())
 
-    private int productCode ;  // valid values 1000 - 5000 inclusive - default value is 5000
+    private int productCode = 5000;  // valid values 1000 - 5000 inclusive - default value is 5000
 
     private double unitCost;  //valid values are any positive number - default to 1
 
@@ -71,7 +71,9 @@ public class Product {
      * @param productCode The new Product Code
      */
     public void setProductCode(int productCode) {
+        if ((productCode >= 1000) && (productCode <= 5000)) {
             this.productCode = productCode;
+        }
     }
     /**
      * Updates the Product Name to the value passed as a parameter
