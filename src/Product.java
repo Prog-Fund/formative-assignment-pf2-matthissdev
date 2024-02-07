@@ -56,7 +56,6 @@ public class Product {
     public void setInCurrentProductLine(boolean inCurrentProductLine) {
         this.inCurrentProductLine = inCurrentProductLine;
     }
-
     @Override
     public String toString() {
         return "Product description: " + productName +

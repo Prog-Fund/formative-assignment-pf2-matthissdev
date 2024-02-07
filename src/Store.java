@@ -69,7 +69,6 @@ public class Store {
         }
     }
 
-
     public double averageProductPrice() {
         if (!isEmpty()) {
             double totalPrice = 0;
@@ -82,7 +81,6 @@ public class Store {
         }
 
     }
-
 
     public String listProductsAboveAPrice(double price) {
         if (isEmpty()) {
@@ -100,5 +98,4 @@ public class Store {
             }
         }
     }
-
 }
