@@ -129,8 +129,4 @@ public class Driver{
             System.out.println("There are no products in the store.");
         }
     }
-
-    //ask the user to enter a price and print out all products costing that price or more.
-
-
 }
