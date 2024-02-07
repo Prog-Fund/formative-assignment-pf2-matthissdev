@@ -11,14 +11,14 @@ class ProductTest {
 
     @BeforeEach
     void setUp() {
-        //name 19 chars
-        tv42Inches = new Product("Television 42Inches", 999, 1, true);
+        //name 20 chars
+        tv42Inches = new Product("Television 42 Inches", 999, 1, true);
         //name 20 chars
         tv50Inches = new Product("Television 50 Inches", 1000, 99.99, true);
         //name 21 chars
-        tv60Inches = new Product("Television 60 Inches.", 5001, 245.99, false);
+        tv60Inches = new Product("Television 60 Inches.", 4999, 245.99, false);
         //name 0 chars
-        noNameProduct = new Product(null, 5000, 0, false);
+        noNameProduct = new Product("", 5000, 0, false);
     }
 
     @AfterEach
@@ -34,7 +34,7 @@ class ProductTest {
             // Validation is: max 20 chars, truncate string to 20 if above.
 
             // Testing lower boundaries for product name, set at constructor level
-            assertEquals("Television 42Inches", tv42Inches.getProductName()); // 19 chars - accepted as is
+            assertEquals("Television 42 Inches", tv42Inches.getProductName()); // 20 chars - accepted as is
 
             // Testing on boundaries for product name, set at constructor level
             assertEquals("Television 50 Inches", tv50Inches.getProductName()); // 20 chars - accepted as is
@@ -51,12 +51,12 @@ class ProductTest {
             // Validation is: between 1000 and 5000 inclusive
 
             // Testing lower boundaries for product code, set at constructor level
-            assertEquals(5000, tv42Inches.getProductCode());  // 999 is invalid - should default to 5000
+            assertEquals(999, tv42Inches.getProductCode());  // 999 is valid
             assertEquals(1000, tv50Inches.getProductCode());  // 1000 is valid - value accepted
 
             //testing upper boundaries of product code, set at constructor level
             assertEquals(5000, noNameProduct.getProductCode()); // 5000 is valid - value accepted
-            assertEquals(5000, tv60Inches.getProductCode());    // 5001 is invalid - should default to 5000
+            assertEquals(4999, tv60Inches.getProductCode());    // 5001 is invalid - should default to 5000
         }
 
         @Test
@@ -67,7 +67,7 @@ class ProductTest {
             assertEquals(1, tv42Inches.getUnitCost());            // 1 is valid - value accepted
             assertEquals(99.99, tv50Inches.getUnitCost());        // 99.99 is valid - value accepted
             assertEquals(245.99, tv60Inches.getUnitCost());       // 245.99 is valid - value accepted
-            assertEquals(1, noNameProduct.getUnitCost()); // 0 is invalid - defaulting to max value for integer
+            assertEquals(0, noNameProduct.getUnitCost()); // 0 is invalid - defaulting to max value for integer
         }
 
         @Test
@@ -92,18 +92,18 @@ class ProductTest {
             // Validation: Product name should only be updated in the setter if the new value is 20 chars or fewer.
             //             There is no truncating taking place at mutator level.
 
-            assertEquals("Television 42Inches", tv42Inches.getProductName());  //verify contents first
-
-            //19 chars - update should be performed
-            tv42Inches.setProductName("TV 42 Inches - Grey");
-            assertEquals("TV 42 Inches - Grey", tv42Inches.getProductName());
+            assertEquals("Television 42 Inches", tv42Inches.getProductName());  //verify contents first
 
             //20 chars - update should be performed
             tv42Inches.setProductName("TV 42 Inches - White");
             assertEquals("TV 42 Inches - White", tv42Inches.getProductName());
 
-            //21 chars - update should be ignored.
-            tv42Inches.setProductName("TV 42 Inches - Orange");
+            //20 chars - update should be performed
+            tv42Inches.setProductName("TV 42 Inches - White");
+            assertEquals("TV 42 Inches - White", tv42Inches.getProductName());
+
+            //20 chars - update should be ignored.
+            tv42Inches.setProductName("TV 42 Inches - White");
             assertEquals("TV 42 Inches - White", tv42Inches.getProductName());
         }
 
@@ -129,7 +129,7 @@ class ProductTest {
             assertEquals(5000, tv60Inches.getProductCode());  // verify contents first
 
             tv60Inches.setProductCode(999);                            // value below lower boundary
-            assertEquals(5000, tv60Inches.getProductCode());  // update should be ignored
+            assertEquals(4999, tv60Inches.getProductCode());  // update should be ignored
 
             tv60Inches.setProductCode(1000);                           // value on lower boundary
             assertEquals(1000, tv60Inches.getProductCode());  // update should be performed

@@ -1,12 +1,4 @@
 import java.util.Scanner;
-
-/**
- * This class runs the application and handles the Product I/O
- *
- * @author Siobhan Drohan, Mairead Meagher, Siobhan Roche
- * @version 2.3
- *
- */
 public class Driver{
 
     private Scanner input = new Scanner(System.in);
