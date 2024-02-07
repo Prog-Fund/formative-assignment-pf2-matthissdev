@@ -74,7 +74,6 @@ class ProductTest {
         void testsForInCurrentProductLine() {
             // No validation was done on these fields.
             // These tests check that the field was updated in the constructor.
-
             //These products should be in the current product line
             assertTrue( tv42Inches.isInCurrentProductLine());
             assertTrue( tv50Inches.isInCurrentProductLine());

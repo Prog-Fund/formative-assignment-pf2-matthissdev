@@ -31,7 +31,6 @@ public class Product {
 
 
     //setters
-
     public void setProductName(String productName) {
         if (productName != null) {
             if (productName.length() <= 20)
